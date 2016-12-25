@@ -18,6 +18,7 @@ namespace SceneCommentEditor
 
         void OnEnable()
         {
+            this.gameObject.hideFlags = HideFlags.DontSaveInBuild;
             distanceCurve = distanceCurve ?? new AnimationCurve();
             if (distanceCurve.keys.Length == 0)
             {
@@ -32,6 +33,7 @@ namespace SceneCommentEditor
             var display = newObject.AddComponent<CommentDisplay>();
             newObject.transform.SetParent(this.transform);
             display.SetManager(this);
+            newObject.gameObject.hideFlags = HideFlags.DontSaveInBuild;
             comments.Add(newObject);
         }
 
